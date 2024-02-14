@@ -20,7 +20,7 @@ provider "aws" {
 
 # Call the infoblox_cloud_network module with required variables
 module "infoblox_cloud_network" {
-  source = "github.com/infobloxopen/terraform-infoblox-cloud-network"
+  source = "git::https://github.com/infobloxopen/terraform-infoblox-cloud-network.git"
   network_view = "Cloud"
   cloud = "AWS"
   region = "uswest"
