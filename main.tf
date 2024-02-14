@@ -29,7 +29,7 @@ data "infoblox_ipv4_network_container" "cloud_container" {
   }
 }
 
-resource "infoblox_ipv4_network_container" "vpc_containter" {
+resource "infoblox_ipv4_network_container" "vpc_container" {
   parent_cidr = data.infoblox_ipv4_network_container.cloud_container.results.*.cidr[0]
   allocate_prefix_len = var.vpc_size[var.size]
   network_view = var.network_view
@@ -40,7 +40,7 @@ resource "infoblox_ipv4_network_container" "vpc_containter" {
 
 resource "infoblox_ipv4_network" "subnets" {
   count = local.subnet_count
-  parent_cidr = infoblox_ipv4_network_container.vpc_containter.cidr
+  parent_cidr = infoblox_ipv4_network_container.vpc_container.cidr
   allocate_prefix_len = var.subnet_size[var.size]
   network_view = var.network_view
   reserve_ip = local.reserved_ip_count
