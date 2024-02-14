@@ -1,5 +1,5 @@
 output "vpc_cidr" {
-    value = infoblox_ipv4_network_container.vpc_containter.cidr
+    value = infoblox_ipv4_network_container.vpc_container.cidr
     description = "CIDR of new network container, used for VPC CIDR"
 }
 
